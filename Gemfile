@@ -12,6 +12,8 @@ gem "rspec-rails"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootswatch-rails'
 gem 'bootstrap_form'
+gem "omniauth-twitter"
+gem "draper"
 
 
 group :development, :test do
