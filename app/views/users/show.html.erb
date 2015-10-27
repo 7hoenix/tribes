@@ -1,0 +1,52 @@
+<br>
+<br>
+<br>
+<div class='container-fluid page-content'>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel-body gh-address-box">
+        <div class="row">
+          <div class="col-md-12 ">
+            <%= image_tag(@user.banner_image, class: "img-responsive col-centered") %>
+            <%= image_tag(@user.profile_image, class: "img-responsive col-centered") %>
+          </div>
+        </div>
+        <div class='gh-address-line'><span class='gh-heading-4'>Email:</span> <span class="gh-right">Hell<x%= @user.email %></span></div>
+        <hr>
+        <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right">Maybe <x%= @user.location %></span></div>
+        <hr>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel-body gh-main-content">
+          <div class="col-md-12">
+            <div class="joblist">
+              <h3>Feed: </h3>
+              <div>stuff and things</div>
+               <x%= render partial: "", collection: @jobs, locals: { type: "feed" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-3">
+      <div class="panel-body">
+        <h2>Recommended People to Follow</h2>
+             <x%= render partial: "", collection: @jobs, locals: { type: "feed" } %>
+        </br>
+        </br>
+        <x%= render partial: "/resumes/resume", collection: @resumes, locals: { type:
+          "profile" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
