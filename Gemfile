@@ -14,6 +14,7 @@ gem 'bootswatch-rails'
 gem 'bootstrap_form'
 gem "omniauth-twitter"
 gem "draper"
+gem "figaro"
 
 
 group :development, :test do
