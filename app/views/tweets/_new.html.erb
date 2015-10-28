@@ -1,0 +1,4 @@
+<%= bootstrap_form_tag url: "/tweets" do |f| %>
+  <%= f.text_field :text %>
+  <%= submit_tag "Tweet", class: "btn btn-sm btn-primary" %>
+<% end %>
