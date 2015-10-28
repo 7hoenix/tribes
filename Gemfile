@@ -16,7 +16,8 @@ gem "omniauth-twitter"
 gem "draper"
 gem "figaro"
 gem "twitter"
-
+gem "hurley"
+gem "faker"
 
 group :development, :test do
   gem "factory_girl_rails"
@@ -28,9 +29,15 @@ group :development, :test do
   gem "launchy"
   gem "database_cleaner"
   gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem "vcr"
+  gem "webmock"
 end
