@@ -12,7 +12,8 @@
 !/log/.keep
 /tmp
 
-db/schema.rb
+/spec/cassettes/
 
 # Ignore application configuration
 /config/application.yml
+
