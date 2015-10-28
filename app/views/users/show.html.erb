@@ -35,7 +35,8 @@
       <div class="panel-body gh-main-content">
           <div class="col-md-12">
             <div class="joblist">
-              <h3>Feed: </h3>
+                <%= render partial: "/tweets/new" %>
+                <br>
                <%= render partial: "/statuses/status", collection: @statuses %>
             </div>
           </div>
