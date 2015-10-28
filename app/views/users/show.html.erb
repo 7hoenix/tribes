@@ -22,8 +22,7 @@
           <div class="col-md-12">
             <div class="joblist">
               <h3>Feed: </h3>
-              <div>stuff and things</div>
-               <x%= render partial: "", collection: @jobs, locals: { type: "feed" } %>
+               <%= render partial: "/statuses/status", collection: @statuses %>
             </div>
           </div>
         </div>
@@ -40,10 +39,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
