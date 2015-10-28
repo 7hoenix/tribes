@@ -1,7 +1,9 @@
 <div class="well col-md-12">
   <div class="col-md-2"><%= image_tag status.user.profile_image_url %></div>
   <div class="col-md-10"><strong><%= status.user.name %></strong> @<%= status.user.screen_name %><br>
-  <%= status.text %>
+    <%= status.text %><br>
+
+  <%= render partial: "/favorites/new", locals: {tweet: status} %>
   </div>
 </div>
 <br>
