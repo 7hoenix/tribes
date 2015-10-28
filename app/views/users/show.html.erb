@@ -8,13 +8,27 @@
         <div class="row">
           <div class="col-md-12 ">
             <%= image_tag(@user.banner_image, class: "img-responsive col-centered") %>
-            <%= image_tag(@user.profile_image, class: "img-responsive col-centered") %>
+            <div class="profile-avatar">
+              <%= image_tag(@user.profile_image, class: "img-responsive col-centered") %>
+            </div>
+            <div class="profile-text">
+              <strong><%= @user.name %></strong><br>
+              @<%= @user.screen_name %>
+            </div>
+            <div class="col-md-4">
+              <span class="stat-text">TWEETS</span><br>
+              <span class="stat-number"><%= @user.tweets %></span>
+            </div>
+            <div class="col-md-4">
+              <span class="stat-text">FOLLOWING</span><br>
+              <span class="stat-number"><%= @user.following %></span>
+            </div>
+            <div class="col-md-4">
+              <span class="stat-text">FOLLOWERS</span><br>
+              <span class="stat-number"><%= @user.followers %></span>
+            </div>
           </div>
         </div>
-        <div class='gh-address-line'><span class='gh-heading-4'>Email:</span> <span class="gh-right">Hell<x%= @user.email %></span></div>
-        <hr>
-        <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right">Maybe <x%= @user.location %></span></div>
-        <hr>
       </div>
     </div>
     <div class="col-md-6">
