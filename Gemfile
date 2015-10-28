@@ -15,6 +15,7 @@ gem 'bootstrap_form'
 gem "omniauth-twitter"
 gem "draper"
 gem "figaro"
+gem "twitter"
 
 
 group :development, :test do
@@ -22,9 +23,11 @@ group :development, :test do
   gem "mocha"
   gem 'byebug'
   gem "pry"
+  gem "pry-rails"
   gem "capybara"
   gem "launchy"
   gem "database_cleaner"
+  gem "better_errors"
 end
 
 group :development do
