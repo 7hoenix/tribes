@@ -1,0 +1,4 @@
+<%= bootstrap_form_tag url: "/favorites" do |f| %>
+  <%= f.hidden_field :tweet, value: tweet.id %>
+  <%= submit_tag "Favorite" %>
+<% end %>
