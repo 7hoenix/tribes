@@ -23,7 +23,7 @@ class UserPresenter
   end
 
   def tweets
-    service.tweets
+    service.tweets.map { |tweet| Tweet.new(tweet.to_h) }
   end
 
   def tweet_count
