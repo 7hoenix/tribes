@@ -1,0 +1,15 @@
+<div class="well col-md-12">
+  <div class="col-md-2"><%= image_tag tweet.user[:profile_image_url] %></div>
+  <div class="col-md-10"><strong><%= tweet.user[:name] %></strong> @<%= tweet.user[:screen_name] %><br>
+    <%= tweet.text %><br>
+    <% unless tweet.retweeted? || tweet.user[:id] == current_user.id %>
+      <%= render partial: "/retweets/new", locals: {tweet: tweet} %>
+    <% end %>
+    <%= tweet.retweet_count %>
+    <% unless tweet.favorited? %>
+      <%= render partial: "/favorites/new", locals: {tweet: tweet} %>
+    <% end %>
+    <%= tweet.favorite_count %>
+  </div>
+</div>
+<br>

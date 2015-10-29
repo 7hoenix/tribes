@@ -55,4 +55,18 @@ RSpec.describe TwitterService, vcr: true do
       end
     end
   end
+
+  describe "#retweet" do
+    it "retweet_tweet before" do
+      tweet = @service.tweets.last
+
+      retweet_count = tweet.retweet_count
+      @service.retweet(tweet)
+      VCR.use_cassette("/TwitterService/_retweet/retweet_tweet after") do
+        tweet = @service.tweets.last
+
+        expect(tweet.retweet_count).to eq(retweet_count + 1)
+      end
+    end
+  end
 end
