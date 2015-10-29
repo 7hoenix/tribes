@@ -14,6 +14,10 @@ class TwitterService
     connection.retweet(tweet)
   end
 
+  def unfavorite(tweet)
+    connection.unfavorite(tweet)
+  end
+
   def favorite(tweet)
     connection.favorite(tweet)
   end

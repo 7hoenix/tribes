@@ -23,14 +23,17 @@
           <span class="glyphicon glyphicon-retweet" style="color:blue"></span> <%= tweet.retweet_count %>
         <% end %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 favorite-<%= tweet.id %>">
         <% unless tweet.favorited? %>
           <%= button_to favorites_path(uid: tweet.id), class: "btn
-          btn-sm btn-primary" do %>
+          btn-sm btn-primary", id: "favorite-#{tweet.id}" do %>
             <span class="glyphicon glyphicon-star"></span> <%= tweet.favorite_count %>
           <% end %>
         <% else %>
-          <span class="glyphicon glyphicon-star" style="color:blue"></span> <%= tweet.favorite_count %>
+          <%= button_to favorite_path(uid: tweet.id), class: "btn
+          btn-sm btn-primary", id: "unfavorite-#{tweet.id}", method: :delete do %>
+            <span class="glyphicon glyphicon-star"></span> <%= tweet.favorite_count %>
+          <% end %>
         <% end %>
       </div>
     </div>
