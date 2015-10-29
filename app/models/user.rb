@@ -18,5 +18,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  delegate :unfollow, :post, :retweet, :favorite, to: :service
+  delegate :unfollow, :post, :retweet, :favorite, :unfavorite, to: :service
 end

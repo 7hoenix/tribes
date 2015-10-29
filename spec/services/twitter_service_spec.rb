@@ -54,6 +54,18 @@ RSpec.describe TwitterService, vcr: true do
         expect(tweet.favorite_count).to eq(pre_count + 1)
       end
     end
+
+    it "unfavorites if already favorited" do
+      tweet = @service.tweets.first
+
+      pre_count = tweet.favorite_count
+      @service.unfavorite(tweet)
+      VCR.use_cassette("/TwitterService/_favorite/unfavorites_tweet after") do
+        tweet = @service.tweets.first
+
+        expect(tweet.favorite_count).to eq(pre_count - 1)
+      end
+    end
   end
 
   describe "#retweet" do
