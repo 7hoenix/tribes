@@ -19,6 +19,7 @@ gem "twitter"
 gem "hurley"
 gem "faker"
 gem "coveralls", require: false
+gem "rails_12factor"
 
 group :development, :test do
   gem "factory_girl_rails"
