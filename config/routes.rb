@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
   resources :favorites, only: [:new, :create]
   resources :retweets, only: [:new, :create]
+  post "unfollow", as: :unfollow, to: "users#unfollow"
 end
