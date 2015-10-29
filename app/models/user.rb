@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  def service
+    @service ||= TwitterService.new(self)
+  end
+
   def self.banner_converter(auth_info)
     auth_info.extra.raw_info.profile_banner_url + "/600x200"
   end
