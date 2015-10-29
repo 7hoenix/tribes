@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
       new_user.oauth_token_secret = auth_info.credentials.secret
     end
   end
+
+  delegate :unfollow, :post, :retweet, :favorite, to: :service
 end

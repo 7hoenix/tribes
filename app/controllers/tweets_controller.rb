@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    current_user.service.post(params[:text])
+    current_user.post(params[:text])
     redirect_to current_user
   end
 end

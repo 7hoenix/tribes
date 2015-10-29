@@ -2,27 +2,38 @@
   <div class="col-md-2">
     <%= image_tag tweet.user[:profile_image_url] %>
     <br>
-    <div class="unfollow-<%= tweet.id %>">
+    <div class="unfollow unfollow-<%= tweet.id %>">
       <% unless tweet.user[:id] == current_user.uid.to_i %>
         <%= button_to "Unfollow", unfollow_path(tweet.user), class: "btn
-        btn-sm" %>
+        btn-sm btn-primary" %>
       <% end %>
     </div>
   </div>
-  <div class="col-md-10"><strong><%= tweet.user[:name] %></strong> @<%= tweet.user[:screen_name] %><br>
+  <div class="row tweet-content col-md-10"><strong><%= tweet.user[:name] %></strong> @<%= tweet.user[:screen_name] %>
+    <br>
     <%= tweet.text %>
-    <div class="retweet-<%= tweet.id %>">
-      <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
-          <%= button_to "Retweet", retweets_path(uid: tweet.id), class: "btn
-          btn-sm" %>
-      <% end %>
+    <div class="row">
+      <div class="col-md-4 retweet-<%= tweet.id %>">
+        <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
+          <%= button_to retweets_path(uid: tweet.id), class: "btn
+          btn-sm btn-primary", id: "retweet-#{tweet.id}" do %>
+            <span class="glyphicon glyphicon-retweet"></span> <%= tweet.retweet_count %>
+          <% end %>
+        <% else %>
+          <span class="glyphicon glyphicon-retweet" style="color:blue"></span> <%= tweet.retweet_count %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <% unless tweet.favorited? %>
+          <%= button_to favorites_path(uid: tweet.id), class: "btn
+          btn-sm btn-primary" do %>
+            <span class="glyphicon glyphicon-star"></span> <%= tweet.favorite_count %>
+          <% end %>
+        <% else %>
+          <span class="glyphicon glyphicon-star" style="color:blue"></span> <%= tweet.favorite_count %>
+        <% end %>
+      </div>
     </div>
-    Retweets: <%= tweet.retweet_count %>
-    <% unless tweet.favorited? %>
-        <%= button_to "Favorite", favorites_path(uid: tweet.id), class: "btn
-        btn-sm" %>
-    <% end %>
-    Favorites: <%= tweet.favorite_count %>
   </div>
 </div>
 <br>
