@@ -18,6 +18,7 @@ gem "figaro"
 gem "twitter"
 gem "hurley"
 gem "faker"
+gem "coveralls", require: false
 
 group :development, :test do
   gem "factory_girl_rails"
@@ -40,4 +41,5 @@ end
 group :test do
   gem "vcr"
   gem "webmock"
+  gem "simplecov", require: false
 end

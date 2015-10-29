@@ -10,6 +10,14 @@ class TwitterService
     end
   end
 
+  def favorite(tweet)
+    connection.favorite(tweet)
+  end
+
+  def post(message)
+    connection.update(message)
+  end
+
   def tweets
     connection.home_timeline
   end

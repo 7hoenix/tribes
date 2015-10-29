@@ -30,6 +30,10 @@ class UserPresenter
     service.tweets
   end
 
+  def tweet_count
+    tweets.count
+  end
+
   def followers
     service.followers
   end

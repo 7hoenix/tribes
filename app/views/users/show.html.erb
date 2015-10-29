@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-4">
               <span class="stat-text">TWEETS</span><br>
-              <span class="stat-number"><%= @user.tweets %></span>
+              <span class="stat-number"><%= @user.tweet_count %></span>
             </div>
             <div class="col-md-4">
               <span class="stat-text">FOLLOWING</span><br>
@@ -37,7 +37,7 @@
             <div class="joblist">
                 <%= render partial: "/tweets/new" %>
                 <br>
-               <%= render partial: "/statuses/status", collection: @user.statuses %>
+               <%= render partial: "/statuses/status", collection: @user.tweets %>
             </div>
           </div>
         </div>
