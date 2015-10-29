@@ -2,7 +2,7 @@
   <div class="col-md-2"><%= image_tag tweet.user[:profile_image_url] %></div>
   <div class="col-md-10"><strong><%= tweet.user[:name] %></strong> @<%= tweet.user[:screen_name] %><br>
     <%= tweet.text %><br>
-    <% unless tweet.retweeted? || tweet.user[:id] == current_user.id %>
+    <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
       <%= render partial: "/retweets/new", locals: {tweet: tweet} %>
     <% end %>
     <%= tweet.retweet_count %>
