@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    current_user.service.unfollow(params[:screen_name])
+    current_user.unfollow(params[:screen_name])
     redirect_to current_user
   end
 end
