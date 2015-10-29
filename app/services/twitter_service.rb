@@ -10,6 +10,10 @@ class TwitterService
     end
   end
 
+  def retweet(tweet)
+    connection.retweet(tweet)
+  end
+
   def favorite(tweet)
     connection.favorite(tweet)
   end
