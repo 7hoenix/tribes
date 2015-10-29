@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    current_user.twitter.favorite(params[:tweet])
+    current_user.service.favorite(params[:tweet])
     redirect_to current_user
   end
 end
