@@ -1,9 +1,6 @@
 class RetweetsController < ApplicationController
-  def new
-  end
-
   def create
-    current_user.service.retweet(params[:tweet])
+    current_user.service.retweet(params[:uid])
     redirect_to current_user
   end
 end

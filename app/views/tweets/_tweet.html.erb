@@ -1,15 +1,28 @@
 <div class="well col-md-12">
-  <div class="col-md-2"><%= image_tag tweet.user[:profile_image_url] %></div>
+  <div class="col-md-2">
+    <%= image_tag tweet.user[:profile_image_url] %>
+    <br>
+    <div class="unfollow-<%= tweet.id %>">
+      <% unless tweet.user[:id] == current_user.uid.to_i %>
+        <%= button_to "Unfollow", unfollow_path(tweet.user), class: "btn
+        btn-sm" %>
+      <% end %>
+    </div>
+  </div>
   <div class="col-md-10"><strong><%= tweet.user[:name] %></strong> @<%= tweet.user[:screen_name] %><br>
-    <%= tweet.text %><br>
-    <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
-      <%= render partial: "/retweets/new", locals: {tweet: tweet} %>
-    <% end %>
-    <%= tweet.retweet_count %>
+    <%= tweet.text %>
+    <div class="retweet-<%= tweet.id %>">
+      <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
+          <%= button_to "Retweet", retweets_path(uid: tweet.id), class: "btn
+          btn-sm" %>
+      <% end %>
+    </div>
+    Retweets: <%= tweet.retweet_count %>
     <% unless tweet.favorited? %>
-      <%= render partial: "/favorites/new", locals: {tweet: tweet} %>
+        <%= button_to "Favorite", favorites_path(uid: tweet.id), class: "btn
+        btn-sm" %>
     <% end %>
-    <%= tweet.favorite_count %>
+    Favorites: <%= tweet.favorite_count %>
   </div>
 </div>
 <br>
