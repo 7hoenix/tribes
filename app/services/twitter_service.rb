@@ -37,4 +37,8 @@ class TwitterService
   def following
     twitter_user.friends_count
   end
+
+  def unfollow(screen_name)
+    connection.unfollow(screen_name)
+  end
 end
