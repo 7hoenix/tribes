@@ -5,7 +5,6 @@ RSpec.describe "user can retweet a tweet", type: :feature, vcr: true do
     it "by clicking the retweet button" do
       visit "/"
       click_on "Login"
-
       current_user = User.last
       VCR.use_cassette("/user_can_retweet_a_tweet during") do
         tweets = UserPresenter.new(current_user).tweets
