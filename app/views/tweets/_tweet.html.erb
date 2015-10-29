@@ -16,14 +16,14 @@
       <div class="col-md-4 retweet-<%= tweet.id %>">
         <% unless tweet.retweeted? || tweet.user[:id] == current_user.uid.to_i %>
           <%= button_to retweets_path(uid: tweet.id), class: "btn
-          btn-sm btn-primary" do %>
+          btn-sm btn-primary", id: "retweet-#{tweet.id}" do %>
             <span class="glyphicon glyphicon-retweet"></span> <%= tweet.retweet_count %>
           <% end %>
         <% else %>
           <span class="glyphicon glyphicon-retweet" style="color:blue"></span> <%= tweet.retweet_count %>
         <% end %>
       </div>
-      <div class="col-md-4 retweet-<%= tweet.id %>">
+      <div class="col-md-4">
         <% unless tweet.favorited? %>
           <%= button_to favorites_path(uid: tweet.id), class: "btn
           btn-sm btn-primary" do %>

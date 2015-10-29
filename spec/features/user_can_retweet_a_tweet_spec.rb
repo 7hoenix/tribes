@@ -12,7 +12,7 @@ RSpec.describe "user can retweet a tweet", type: :feature, vcr: true do
         expect(@tweet.retweet_count).to eq(0)
       end
       within(".retweet-#{@tweet.id}") do
-          click_on "Retweet"
+        click_on "retweet-#{@tweet.id}"
         VCR.use_cassette("/user_can_retweet_a_tweet after") do
           tweets = UserPresenter.new(current_user).tweets
           new_tweet = tweets.find { |tweet| tweet.id == 659215168258183168 }
