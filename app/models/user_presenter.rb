@@ -22,10 +22,6 @@ class UserPresenter
     user.screen_name
   end
 
-  def statuses
-    tweets
-  end
-
   def tweets
     service.tweets
   end
